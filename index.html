@@ -288,7 +288,6 @@
     </a>
 
     <script>
-        <!-- Di bagian paling bawah, sebelum penutup </body> -->
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.getElementById('nav-menu');
@@ -323,19 +322,25 @@
     
     // Improved animated counter for stats
     const counters = document.querySelectorAll('.stat-number');
-    const speed = 200;
 
     const animateCounter = () => {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-count');
-            const count = +counter.innerText;
-            
-            if (count < target) {
-                const increment = Math.ceil(target / speed);
-                counter.innerText = Math.min(count + increment, target);
-                setTimeout(animateCounter, 10);
+        const interval = setInterval(() => {
+            let allDone = true;
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                if (count < target) {
+                    // Very fast animation for Siswa (476), very slow for others
+                    const speed = target === 476 ? 5 : 2000;
+                    const increment = Math.ceil((target - count) / speed);
+                    counter.innerText = Math.min(count + increment, target);
+                    allDone = false;
+                }
+            });
+            if (allDone) {
+                clearInterval(interval);
             }
-        });
+        }, 100); // Interval for smoother animation
     };
 
     // Enhanced Intersection Observer for animations

@@ -158,7 +158,7 @@ nav a:hover::after {
 /* Hero Modern */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,102,204,0.85), rgba(77,166,255,0.85)), url('https://images.unsplash.com/photo-1523050858588-9d0e5f4b2d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    background: linear-gradient(rgba(0,102,204,0.6), rgba(77,166,255,0.6)), url('img/guru&staff1.jpg') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -247,7 +247,7 @@ nav a:hover::after {
 
 .btn-outline:hover {
     background: var(--white);
-    color: var(--primary-blue);
+    color: var(--primary-white);
 }
 
 /* Section Modern */
@@ -560,7 +560,7 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
     animation: fadeIn 0.3s ease;
