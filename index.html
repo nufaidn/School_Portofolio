@@ -469,7 +469,7 @@
             card.addEventListener('touchstart', function() {
                 this.classList.add('hover');
             });
-            
+
             card.addEventListener('touchend', function() {
                 setTimeout(() => {
                     this.classList.remove('hover');
@@ -477,6 +477,32 @@
             });
         });
     }
+
+    // Page transition and button animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add page transition class to body
+        document.body.classList.add('page-transition');
+
+        // Handle "Baca Selengkapnya" link clicks
+        document.querySelectorAll('.card a[href*="news-detail.html"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+
+                // Add click animation
+                this.classList.add('btn-click');
+                this.classList.add('ripple');
+
+                // Fade out page
+                document.body.classList.add('fade-out');
+
+                // Navigate after animation
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
+        });
+    });
     </script>
 </body>
 </html>

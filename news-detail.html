@@ -238,6 +238,33 @@
         document.getElementById('news-content').innerHTML = "<p>Maaf, berita yang Anda cari tidak tersedia.</p>";
     }
 
+    // Page transition and button animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add page transition class to body
+        document.body.classList.add('page-transition');
+
+        // Handle "Kembali" button click
+        const backBtn = document.querySelector('.btn[href*="index.html"]');
+        if (backBtn) {
+            backBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+
+                // Add click animation
+                this.classList.add('btn-click');
+                this.classList.add('ripple');
+
+                // Fade out page
+                document.body.classList.add('fade-out');
+
+                // Navigate after animation
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
+        }
+    });
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
